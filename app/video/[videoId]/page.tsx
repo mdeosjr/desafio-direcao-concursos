@@ -3,7 +3,7 @@
 import Video from "@/components/Video/Video";
 import { VideoData, VideoPageParams } from "@/types";
 import { useEffect, useState } from "react";
-import styles from "./page.module.css";
+import styles from "../../globals.module.css";
 
 export default function VideoPage({ params }: VideoPageParams) {
 	const [video, setVideo] = useState<VideoData | undefined>(undefined);
