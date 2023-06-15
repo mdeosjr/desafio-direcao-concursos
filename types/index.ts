@@ -3,3 +3,9 @@ export interface VideoData {
 	image: string;
 	video_files: [{ link: string }];
 }
+
+export interface VideoPageParams {
+	params: {
+		videoId: string;
+	};
+}

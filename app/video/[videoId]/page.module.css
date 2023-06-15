@@ -1,0 +1,12 @@
+.main {
+  padding: 6rem;
+}
+
+.grid {
+  display: grid;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(3, auto);
+  max-width: 100%;
+}
