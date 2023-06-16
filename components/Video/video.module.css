@@ -2,8 +2,8 @@
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	width: 20vw;
-	height: 25vh;
+	width: 45vw;
+	height: 50vh;
 }
 
 .Video {
@@ -18,7 +18,7 @@
 	position: absolute;
 	justify-content: space-between;
 	align-items: center;
-	bottom: 0;
+	bottom: 2px;
 	left: 0;
 	width: 100%;
 }
@@ -26,14 +26,15 @@
 .Button {
 	all: unset;
 	color: #f1f1f1;
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .ProgressBar {
 	margin: auto;
 	border: 0;
-	width: 98%;
+	width: 99%;
 	height: 3px;
+	margin-bottom: 5px;
 }
 
 .ProgressBar::-webkit-progress-bar {
@@ -54,8 +55,8 @@
 .LeftFunctions {
 	display: flex;
 	align-items: center;
-  justify-content: space-between;
-  width: 50%;
+	justify-content: space-between;
+	width: 18rem;
 }
 
 .TimeText {

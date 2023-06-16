@@ -2,12 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./video.module.css";
-import {
-	PlayArrow,
-	Pause,
-	Fullscreen,
-	FullscreenExit,
-} from "@mui/icons-material";
+import { PlayArrow, Pause, Fullscreen } from "@mui/icons-material";
 import Slider from "@mui/material/Slider";
 
 interface VideoProps {
@@ -21,13 +16,7 @@ const Video = ({ source, poster }: VideoProps) => {
 	const [isPlaying, setIsPlaying] = useState<boolean>(false);
 	const [duration, setDuration] = useState<number>(0);
 	const [currentTime, setCurrentTime] = useState<number>(0);
-	const [volume, setVolume] = useState<number>(0);
-	const [isFullScreen, setIsFullScreen] = useState(false);
-
-	useEffect(() => {
-		setDuration(Number(videoRef.current?.duration));
-		setCurrentTime(Number(videoRef.current?.currentTime));
-	}, []);
+	const [volume, setVolume] = useState<number>(100);
 
 	const handleToggle = () => {
 		if (isPlaying) {
@@ -38,8 +27,23 @@ const Video = ({ source, poster }: VideoProps) => {
 		setIsPlaying(!isPlaying);
 	};
 
-	const handleProgress = () => {
+	useEffect(() => {
 		setDuration(Number(videoRef.current?.duration));
+		setCurrentTime(Number(videoRef.current?.currentTime));
+	}, [videoRef.current])
+
+	const getAsTime = (seconds: number) => {
+		if (!seconds) return `--:--`;
+
+		const minutes = Math.floor(seconds / 60);
+		const secondsLeft = Math.floor(seconds % 60);
+
+		return `${minutes.toString().padStart(2, "0")}:${secondsLeft
+			.toString()
+			.padStart(2, "0")}`;
+	};
+
+	const handleProgress = () => {
 		setCurrentTime(Number(videoRef.current?.currentTime));
 
 		const progress = (currentTime / duration) * 100;
@@ -68,7 +72,7 @@ const Video = ({ source, poster }: VideoProps) => {
 				<progress
 					className={styles.ProgressBar}
 					value={progress || 0}
-					max="100"
+					max="99"
 				/>
 				<div className={styles.VideoFunctions}>
 					<div className={styles.LeftFunctions}>
@@ -76,13 +80,7 @@ const Video = ({ source, poster }: VideoProps) => {
 							{isPlaying ? <Pause /> : <PlayArrow />}
 						</button>
 						<span className={styles.TimeText}>
-							{Math.floor(currentTime / 60) +
-								":" +
-								("0" + Math.floor(currentTime % 60)).slice(-2)}
-							/
-							{Math.floor(duration / 60) +
-								":" +
-								("0" + Math.floor(duration % 60)).slice(-2)}
+							{getAsTime(currentTime)}/{getAsTime(duration)}
 						</span>
 						<Slider
 							size="small"
