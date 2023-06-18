@@ -1,7 +1,13 @@
-import { Inter } from "next/font/google";
-import "./globals.css"
+import { Montserrat } from "next/font/google";
+import "./globals.css";
+import { VideosProvider } from "@/contexts/VideoContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Montserrat({
+	weight: ["400", "500", "600"],
+	style: ["normal", "italic"],
+	subsets: ["latin"],
+	display: "swap",
+});
 
 export const metadata = {
 	title: "Desafio Direção Concursos",
@@ -16,7 +22,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<div className="main">{children}</div>
+				<div className="main">
+					<VideosProvider>{children}</VideosProvider>
+				</div>
 			</body>
 		</html>
 	);
