@@ -7,5 +7,6 @@ export interface VideoData {
 export interface VideoPageParams {
 	params: {
 		videoId: string;
+		q: string;
 	};
 }
