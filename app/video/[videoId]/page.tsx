@@ -1,8 +1,9 @@
 "use client";
 
-import { Video } from "@/components";
+import { SideBar, Video } from "@/components";
 import { VideoData, VideoPageParams } from "@/types";
 import { useEffect, useState } from "react";
+import styles from "./page.module.css"
 
 export default function VideoPage({ params }: VideoPageParams) {
 	const [video, setVideo] = useState<VideoData | undefined>(undefined);
@@ -19,10 +20,15 @@ export default function VideoPage({ params }: VideoPageParams) {
 	}, []);
 
 	return (
-		<Video
-			source={video?.video_files[0].link}
-			poster={video?.image}
-			key={video?.id}
-		/>
+		<div className={styles.Container}>
+			<div>
+				<Video
+					source={video?.video_files[0].link}
+					poster={video?.image}
+					key={video?.id}
+				/>
+			</div>
+			<SideBar />
+		</div>
 	);
 }

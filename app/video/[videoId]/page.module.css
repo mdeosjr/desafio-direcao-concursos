@@ -1,0 +1,14 @@
+.Container {
+	display: grid;
+	justify-content: space-around;
+	margin: auto;
+	grid-template-columns: 1fr 340px;
+	grid-gap: 1rem;
+	min-height: 100vh;
+}
+
+@media (max-width: 1024px) {
+	.Container {
+		grid-template-columns: 1fr;
+	}
+}
