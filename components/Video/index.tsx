@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./video.module.css";
 import { PlayArrow, Pause, Fullscreen } from "@mui/icons-material";
-import Slider from "@mui/material/Slider";
+import { Slider } from "@mui/material";
 
 interface VideoProps {
-	source: string;
-	poster: string;
+	source: string | undefined;
+	poster: string | undefined;
 }
 
 const Video = ({ source, poster }: VideoProps) => {
@@ -27,11 +27,6 @@ const Video = ({ source, poster }: VideoProps) => {
 		setIsPlaying(!isPlaying);
 	};
 
-	useEffect(() => {
-		setDuration(Number(videoRef.current?.duration));
-		setCurrentTime(Number(videoRef.current?.currentTime));
-	}, [videoRef.current])
-
 	const getAsTime = (seconds: number) => {
 		if (!seconds) return `--:--`;
 
@@ -44,10 +39,13 @@ const Video = ({ source, poster }: VideoProps) => {
 	};
 
 	const handleProgress = () => {
+		setDuration(Number(videoRef.current?.duration));
 		setCurrentTime(Number(videoRef.current?.currentTime));
 
 		const progress = (currentTime / duration) * 100;
 		setProgress(progress);
+
+		if (videoRef.current?.paused) setIsPlaying(false);
 	};
 
 	const handleVolume = (event: Event, newValue: number | number[]) => {
