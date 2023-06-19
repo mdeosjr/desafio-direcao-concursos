@@ -1,12 +1,36 @@
 .SideBarContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 100%;
+	width: 100%;
 }
 
 .Image {
-  width: 100%;
-  height: 100%;
-  position: relative;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.Feed {
+	max-height: 600px;
+	overflow-y: auto;
+}
+
+.Feed::-webkit-scrollbar {
+	width: 5px;
+}
+
+.Feed::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+.Feed::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+.Feed::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+@media (max-width: 768px) {
+	.Feed {
+		overflow: unset;
+	}
 }

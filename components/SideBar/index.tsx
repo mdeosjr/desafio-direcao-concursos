@@ -1,12 +1,15 @@
+"use client";
+
 import styles from "./sideBar.module.css";
 import { useVideos } from "@/hooks/useVideos";
 import { useEffect, useState } from "react";
-import ToggleButtons from "../ToggleButtons";
 import Feed from "../Feed";
+import ToggleButtons from "../ToggleButtons";
 
 export default function SideBar() {
 	const { videos, setVideos } = useVideos();
-	const [term, setTerm] = useState<string | null>("Populares");
+	const searchTerms = ["Populares", "Cinema", "Comida", "Animais", "Música"];
+	const [term, setTerm] = useState<string>(searchTerms[0]);
 
 	const fetchVideos = async () => {
 		const response = await fetch(`/api/search/${term}`);
@@ -21,8 +24,8 @@ export default function SideBar() {
 
 	return (
 		<div className={styles.SideBarContainer}>
-			<ToggleButtons term={term} setTerm={setTerm} />
-			<Feed videos={videos} />
+			<ToggleButtons options={searchTerms} onChange={setTerm} value={term} />
+			<Feed videos={videos} className={styles.Feed} />
 		</div>
 	);
 }

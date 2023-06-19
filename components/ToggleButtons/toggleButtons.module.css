@@ -1,0 +1,48 @@
+.Container {
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+  margin-bottom: 14px;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.Container::-webkit-scrollbar {
+	height: 5px;
+}
+
+.Container::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+.Container::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+.Container::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+.Option {
+  all: unset;
+  background-color: #555;
+  color: white;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font: bold 12px Montserrat;
+}
+
+.Option:hover {
+  background-color: white;
+  color: black;
+}
+
+.Option:not(:last-child) {
+  margin-right: 12px;
+}
+
+.active {
+  background-color: white;
+  color: black;
+}
