@@ -50,7 +50,10 @@ const Video = ({ source, poster }: VideoProps) => {
 
 	const handleVolume = (event: Event, newValue: number | number[]) => {
 		setVolume(newValue as number);
-		videoRef.current.volume = newValue / 100;
+
+		if(videoRef.current) {
+			videoRef.current.volume = newValue / 100;
+		}
 	};
 
 	const handleFullScreen = () => {
