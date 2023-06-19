@@ -12,5 +12,14 @@ body {
 }
 
 .main {
-	padding: 6rem;
+	margin: auto;
+	width: 100%;
+	max-width: 1600px;
+	padding: 0 16px 50px;
+}
+
+@media (max-width: 320px) {
+	.main {
+		padding: 0;
+	}
 }
