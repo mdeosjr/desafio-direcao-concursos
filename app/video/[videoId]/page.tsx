@@ -27,6 +27,7 @@ export default function VideoPage({ params }: VideoPageParams) {
 					poster={video?.image}
 					key={video?.id}
 				/>
+				<h1 className={styles.VideoTitle}>Vídeo selecionado!</h1>
 			</div>
 			<SideBar />
 		</div>
