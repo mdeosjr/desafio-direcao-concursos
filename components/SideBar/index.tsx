@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./sideBar.module.css";
-import { useVideos } from "@/hooks/useVideos";
+import useVideos from "@/hooks/useVideos";
 import { useEffect, useState } from "react";
 import Feed from "../Feed";
 import ToggleButtons from "../ToggleButtons";

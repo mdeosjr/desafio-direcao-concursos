@@ -6,7 +6,7 @@ export default function Feed({
 	videos,
 	className,
 }: {
-	videos: VideoData[];
+	videos: VideoData[] | null;
 	className?: string;
 }) {
 	return (
