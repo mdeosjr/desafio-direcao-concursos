@@ -48,10 +48,10 @@ const Video = ({ source, poster }: VideoProps) => {
 		if (videoRef.current?.paused) setIsPlaying(false);
 	};
 
-	const handleVolume = (event: Event, newValue: number | number[]) => {
+	const handleVolume = (event: Event, newValue: any) => {
 		setVolume(newValue as number);
 
-		if(videoRef.current) {
+		if (videoRef.current) {
 			videoRef.current.volume = newValue / 100;
 		}
 	};
