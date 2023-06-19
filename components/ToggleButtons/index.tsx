@@ -1,4 +1,4 @@
-import styles from "./toggleOptions.module.css";
+import styles from "./toggleButtons.module.css";
 import classNames from "classnames";
 
 export default function ToggleButtons({
