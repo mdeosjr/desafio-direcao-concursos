@@ -14,3 +14,25 @@
 	font: bold 30px Montserrat;
 	color: white;
 }
+
+@media(max-width: 768px) {
+	.Header {
+		justify-content: flex-end;
+		padding: 0 18px;
+	}
+
+	.HeaderTitle {
+		font-size: 3.5vw;
+	}
+}
+
+@media(max-width: 320px) {
+	.Header {
+		justify-content: flex-end;
+		padding: 0 18px;
+	}
+
+	.HeaderTitle {
+		font-size: 14px	;
+	}
+}
